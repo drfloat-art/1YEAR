@@ -1,0 +1,107 @@
+/* === style.css === */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #fff1f5, #ffe4e1);
+    color: #444;
+    text-align: center;
+    overflow-x: hidden;
+    position: relative;
+  }
+  
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+button {
+    background-color: #ff6b81;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    animation: glow 2s infinite alternate, bounce 1.2s infinite;
+  }
+  
+button:hover {
+    background-color: #ff4757;
+  }
+  
+img {
+    width: 200px;
+    border-radius: 15px;
+    margin: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    transition: transform 0.5s ease;
+    animation: floatUpDown 3s ease-in-out infinite;
+  }
+  
+.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease;
+  }
+  
+.fade-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+  
+  @keyframes glow {
+    from { box-shadow: 0 0 10px #ff6b81; }
+    to { box-shadow: 0 0 20px #ff4757; }
+  }
+  
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  
+  @keyframes floatUpDown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  /* Floating hearts */
+.heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 20px;
+    color: #ff6b81;
+    animation: floatHeart linear forwards;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  @keyframes floatHeart {
+    to {
+      transform: translateY(-100vh);
+      opacity: 0;
+    }
+  }
+  
+  /* Background heart layer */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url('https://marketplace.canva.com/EAEvPRTwFtU/3/0/1600w/canva-beige-doodle-heart-desktop-wallpaper-zwtpUKFUbWs.jpg') repeat;
+    background-size: cover;
+    opacity: 0.1;
+    z-index: -1;
+    animation: pulse 4s ease-in-out infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+  }
